@@ -125,8 +125,8 @@ view: volumemap {
     sql_longitude: ${TABLE}.longitude;;
   }
 
-  dimension: Contractcount {
-    type: number
+  measure: Contractcount {
+    type: sum
     sql: ${TABLE}."CONTRACTCOUNT" ;;
   }
 
