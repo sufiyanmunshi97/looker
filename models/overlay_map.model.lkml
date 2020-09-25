@@ -12,3 +12,4 @@ explore: map_layer_territory {}
 
 explore: volumemap {}
 explore: multiple_pushpin {}
+explore: vendorID {}

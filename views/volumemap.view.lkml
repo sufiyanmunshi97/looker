@@ -1,6 +1,6 @@
 view: volumemap {
   derived_table: {
-    sql:select '1635002' as VendorID, '2531, BARRETT AVE, AK, 99801' as Address, '99801' as Zipcode, '1846' as Contractcount,'58.369237' as Latitude,'-134.607766' as Longitude
+    sql:select '1635002' as VendorID, '2531, BARRETT AVE, AK, 99801' as Address, '99801' as Zipcode, '1846' as Numberofcontracts,'58.369237' as Latitude,'-134.607766' as Longitude
       union select '1635012', '2531, BARRETT AVE, AK, 99801', '99801', '4831', '58.369237', '-134.607766'
       union select '1635022', '2531, BARRETT AVE, AK, 99801', '99801', '1475', '58.369237', '-134.607766'
       union select '1153382', '16205, POINT LENA LOOP RD, AK, 99801', '99801', '2889', '58.389412', '-134.767478'
@@ -125,9 +125,9 @@ view: volumemap {
     sql_longitude: ${TABLE}.longitude;;
   }
 
-  measure: Contractcount {
+  measure: Numberofcontracts {
     type: sum
-    sql: ${TABLE}."CONTRACTCOUNT" ;;
+    sql: ${TABLE}."NUMBEROFCONTRACTS" ;;
   }
 
   dimension: VendorID {
@@ -136,6 +136,6 @@ view: volumemap {
   }
 
   set: detail {
-    fields: [location,Address,VendorID,Zipcode,Contractcount]
+    fields: [location,Address,VendorID,Zipcode,Numberofcontracts]
   }
 }

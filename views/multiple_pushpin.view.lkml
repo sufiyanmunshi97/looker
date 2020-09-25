@@ -1,6 +1,6 @@
 view: multiple_pushpin {
   derived_table: {
-    sql:select '1635002' as VendorID, '2531, BARRETT AVE, AK, 99801' as Address, '99801' as Zipcode, '1846' as Contractcount, 'Direct Dispatch' as Pushpin,'1' as Pushpin1,'58.369237' as Latitude,'-134.607766' as Longitude
+    sql:select '1635002' as VendorID, '2531, BARRETT AVE, AK, 99801' as Address, '99801' as Zipcode, '1846' as Numberofcalls, 'Direct Dispatch' as Pushpin,'1' as Pushpin1,'58.369237' as Latitude,'-134.607766' as Longitude
 union select '1635012', '2531, BARRETT AVE, AK, 99801', '99801', '4831', 'Direct Dispatch', '1', '58.369237', '-134.607766'
 union select '1635022', '2531, BARRETT AVE, AK, 99801', '99801', '1475', 'Direct Dispatch', '1', '58.369237', '-134.607766'
 union select '1153382', '16205, POINT LENA LOOP RD, AK, 99801', '99801', '2889', 'Direct Dispatch', '1', '58.389412', '-134.767478'
@@ -99,8 +99,7 @@ union select '1462032', '7070, KAREN ST., AK, 99623', '99623', '443', 'Preferred
 union select '1462012', '7070, KAREN ST., AK, 99623', '99623', '4516', 'Preferred', '3', '61.599258', '-149.627229'
 union select '1461982', '7070, KAREN ST., AK, 99623', '99623', '2378', 'Preferred', '3', '61.599258', '-149.627229'
 union select '1497902', '15693, WILMA ST., AK, 99623', '99623', '1834', 'Preferred', '3', '40.2534', '-79.41031'
-union select '1387942', '3279, WYOMING DRIVE, AK, 99623', '99623', '532', 'Preferred', '3', '61.5463', '-149.59'
- ;;
+union select '1387942', '3279, WYOMING DRIVE, AK, 99623', '99623', '532', 'Preferred', '3', '61.5463', '-149.59' ;;
   }
 
   measure: count {
@@ -132,9 +131,9 @@ union select '1387942', '3279, WYOMING DRIVE, AK, 99623', '99623', '532', 'Prefe
     sql_longitude: ${TABLE}.longitude;;
   }
 
-  measure: Contractcount {
+  measure: Numberofcalls{
     type: sum
-    sql: ${TABLE}."CONTRACTCOUNT" ;;
+    sql: ${TABLE}."NUMBEROFCALLS" ;;
   }
 
   measure: Pushpin1 {
@@ -148,6 +147,6 @@ union select '1387942', '3279, WYOMING DRIVE, AK, 99623', '99623', '532', 'Prefe
   }
 
   set: detail {
-    fields: [location,Address,VendorID,Zipcode,Contractcount,Pushpin]
+    fields: [location,Address,VendorID,Zipcode,Numberofcalls,Pushpin]
   }
 }
